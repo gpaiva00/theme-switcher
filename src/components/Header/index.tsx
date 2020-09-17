@@ -1,9 +1,9 @@
 import React, { FC, useContext } from 'react';
 import Switch from 'react-switch';
 import {ThemeContext} from 'styled-components'
-import {shade, lighten} from 'polished'
+import {lighten} from 'polished'
 
-import {Container} from './styles';
+import {Container, Title} from './styles';
 
 interface HeaderProps {
   toggleTheme(): void;
@@ -13,7 +13,9 @@ const Header: FC<HeaderProps> = ({ toggleTheme }) => {
   const { colors, title }  = useContext(ThemeContext)
   return (
     <Container>
-      INÍCIO
+      <Title>
+        {title === 'dark' ? 'Dark Night' : 'Bright Day'}
+      </Title>
 
       <Switch
         onChange={toggleTheme}
